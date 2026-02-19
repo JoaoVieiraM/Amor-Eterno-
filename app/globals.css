@@ -1,26 +1,71 @@
 @import "tailwindcss";
+/* Rebuild trigger */
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif: var(--font-playfair), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+
+  --color-background: #F9F7F2;
+
+  --color-primary: #D4AF37;
+  --color-primary-50: #FCF9E8;
+  --color-primary-100: #F9F3D1;
+  --color-primary-200: #F3E7A3;
+  --color-primary-300: #EDDB75;
+  --color-primary-400: #E7CF47;
+  --color-primary-500: #D4AF37;
+  --color-primary-600: #AA8C2C;
+  --color-primary-700: #806921;
+  --color-primary-800: #554616;
+  --color-primary-900: #2B230B;
+
+  --color-secondary: #556B2F;
+  --color-secondary-50: #F2F6E8;
+  --color-secondary-100: #E6EDD1;
+  --color-secondary-200: #CDDBA3;
+  --color-secondary-300: #B4C975;
+  --color-secondary-400: #9BB747;
+  --color-secondary-500: #556B2F;
+  --color-secondary-600: #445626;
+  --color-secondary-700: #33401C;
+  --color-secondary-800: #222B13;
+  --color-secondary-900: #111509;
+
+  --color-accent: #87CEEB;
+  --color-accent-50: #F2FAFD;
+  --color-accent-100: #E6F5FB;
+  --color-accent-200: #CDEBF7;
+  --color-accent-300: #B3E0F3;
+  --color-accent-400: #9AD6EF;
+  --color-accent-500: #87CEEB;
+  --color-accent-600: #6CA5BC;
+  --color-accent-700: #517C8D;
+  --color-accent-800: #36525E;
+  --color-accent-900: #1B292F;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(var(--foreground-rgb));
+  background-color: #F9F7F2;
+  /* Custom background color */
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
 }

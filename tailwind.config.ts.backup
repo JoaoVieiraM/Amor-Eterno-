@@ -1,0 +1,66 @@
+import type { Config } from "tailwindcss";
+
+const config: Config = {
+    content: [
+        "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+        "./components/**/*.{js,ts,jsx,tsx,mdx}",
+        "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    ],
+    theme: {
+        extend: {
+            colors: {
+                primary: {
+                    DEFAULT: "#D4AF37", // Gold
+                    50: "#FCF9E8",
+                    100: "#F9F3D1",
+                    200: "#F3E7A3",
+                    300: "#EDDB75",
+                    400: "#E7CF47",
+                    500: "#D4AF37",
+                    600: "#AA8C2C",
+                    700: "#806921",
+                    800: "#554616",
+                    900: "#2B230B",
+                },
+                secondary: {
+                    DEFAULT: "#556B2F", // Dark Olive Green
+                    50: "#F2F6E8",
+                    100: "#E6EDD1",
+                    200: "#CDDBA3",
+                    300: "#B4C975",
+                    400: "#9BB747",
+                    500: "#556B2F",
+                    600: "#445626",
+                    700: "#33401C",
+                    800: "#222B13",
+                    900: "#111509",
+                },
+                accent: {
+                    DEFAULT: "#87CEEB", // Sky Blue
+                    50: "#F2FAFD",
+                    100: "#E6F5FB",
+                    200: "#CDEBF7",
+                    300: "#B3E0F3",
+                    400: "#9AD6EF",
+                    500: "#87CEEB",
+                    600: "#6CA5BC",
+                    700: "#517C8D",
+                    800: "#36525E",
+                    900: "#1B292F",
+                },
+                background: "#F9F7F2", // Warm White
+            },
+            fontFamily: {
+                sans: ["var(--font-inter)", "sans-serif"],
+                serif: ["var(--font-playfair)", "serif"],
+            },
+            backgroundImage: {
+                "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+                "gradient-conic":
+                    "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+            },
+        },
+    },
+    plugins: [],
+};
+export default config;
