@@ -84,15 +84,15 @@ const Hero = () => {
                   TODO: Replace with a high-quality generated example image. 
                   For now using a placeholder color block that implies an image 
                 */}
-                            <div className="absolute inset-0 bg-gradient-to-br from-primary-100 to-accent-100 flex items-center justify-center">
-                                <p className="text-gray-400 font-serif italic text-lg px-8 text-center">
-                                    [Imagem de Exemplo: Golden Retriever nas Nuvens]
-                                </p>
+                            <div className="absolute inset-0 bg-gray-100">
+                                <Image
+                                    src="/examples/hero-dog-heaven.jpg"
+                                    alt="Homenagem Exemplo"
+                                    fill
+                                    className="object-cover"
+                                    priority
+                                />
                             </div>
-                            {/* 
-                   Once we have example images, we can use:
-                   <Image src="/examples/hero-dog-heaven.jpg" alt="Exemplo de Homenagem" fill className="object-cover" />
-                */}
                         </div>
 
                         {/* Floating Cards - Hidden on very small screens, adjusted for mobile */}
