@@ -7,7 +7,9 @@ import Button from "@/components/ui/Button";
 import { Loader2, Mail, Lock, User, AlertCircle, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 
-export default function Login() {
+import { Suspense } from "react";
+
+function LoginContent() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isSignUp, setIsSignUp] = useState(false);
@@ -172,5 +174,13 @@ export default function Login() {
                 </div>
             </div>
         </div>
+    );
+}
+
+export default function Login() {
+    return (
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-gray-50"><Loader2 className="w-8 h-8 animate-spin text-primary" /></div>}>
+            <LoginContent />
+        </Suspense>
     );
 }
