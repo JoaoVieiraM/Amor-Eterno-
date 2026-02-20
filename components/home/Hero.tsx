@@ -13,7 +13,7 @@ const Hero = () => {
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
                 <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/20 rounded-full blur-3xl translate-y-1/3 -translate-x-1/3" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-30 bg-[url('/noise.png')]" />
+
             </div>
 
             <div className="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center relative z-10">

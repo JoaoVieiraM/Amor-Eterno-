@@ -37,7 +37,7 @@ const CommunitySection = () => {
                     {/* Visuals */}
                     <div className="relative z-10 w-full max-w-sm">
                         <div className="aspect-[4/3] bg-gradient-to-br from-green-100 to-emerald-50 rounded-2xl flex items-center justify-center p-8 relative group">
-                            <div className="absolute inset-0 bg-[url('/noise.png')] opacity-20" />
+
                             {/* Mock Chat Interface */}
                             <div className="w-full bg-white rounded-xl shadow-lg p-4 space-y-3 transform transition-transform group-hover:-translate-y-2 duration-500">
                                 <div className="flex items-center gap-3">
