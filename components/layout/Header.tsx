@@ -93,9 +93,11 @@ const Header = () => {
                         </Link>
                     )}
 
-                    <Button size="sm">
-                        Criar Homenagem
-                    </Button>
+                    <Link href="/homenagem/novo">
+                        <Button size="sm">
+                            Criar Homenagem
+                        </Button>
+                    </Link>
                 </nav>
 
                 {/* Mobile Menu Toggle */}
@@ -142,9 +144,11 @@ const Header = () => {
                                     </Button>
                                 </Link>
                             )}
-                            <Button className="w-full">
-                                Criar Homenagem
-                            </Button>
+                            <Link href="/homenagem/novo" className="w-full">
+                                <Button className="w-full">
+                                    Criar Homenagem
+                                </Button>
+                            </Link>
                         </div>
                     </motion.div>
                 )}

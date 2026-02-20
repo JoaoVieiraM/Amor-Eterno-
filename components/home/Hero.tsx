@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Star, Heart, MessageCircle } from "lucide-react";
 import Button from "../ui/Button";
@@ -39,9 +40,11 @@ const Hero = () => {
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start w-full sm:w-auto">
-                        <Button size="lg" rightIcon={<ArrowRight className="w-5 h-5" />} className="w-full sm:w-auto">
-                            Criar Homenagem
-                        </Button>
+                        <Link href="/homenagem/novo" className="w-full sm:w-auto">
+                            <Button size="lg" rightIcon={<ArrowRight className="w-5 h-5" />} className="w-full sm:w-auto">
+                                Criar Homenagem
+                            </Button>
+                        </Link>
                         <Button
                             variant="secondary"
                             size="lg"

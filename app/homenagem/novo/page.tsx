@@ -150,7 +150,7 @@ export default function NovaHomenagem() {
                                     id="petName"
                                     value={petName}
                                     onChange={(e) => setPetName(e.target.value)}
-                                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-lg p-3 border"
+                                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-lg p-3 border text-gray-900 placeholder:text-gray-400"
                                     placeholder="Ex: Paçoca"
                                 />
                             </div>

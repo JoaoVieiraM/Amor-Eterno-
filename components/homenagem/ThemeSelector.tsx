@@ -1,7 +1,7 @@
 "use client";
 
 import { Check } from "lucide-react";
-import Image from "next/image";
+
 
 // Theme definitions based on specifications
 export const THEMES = [
@@ -31,8 +31,7 @@ export const THEMES = [
         title: "Céu Estrelado",
         description: "Brilhando entre estrelas em um paraíso cósmico.",
         previewUrl: "/themes/ceu-estrelado-preview.jpg",
-        color: "from-indigo-900 to-purple-900 text-white", // Dark theme
-        textColor: "text-white",
+        color: "from-indigo-50 to-white",
     },
     {
         id: "jardim-paraiso",
@@ -65,14 +64,14 @@ export default function ThemeSelector({ selectedThemeId, onSelectTheme }: ThemeS
                             key={theme.id}
                             onClick={() => onSelectTheme(theme.id)}
                             className={`relative group text-left rounded-xl overflow-hidden border-2 transition-all duration-200 outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ${isSelected
-                                    ? "border-primary ring-2 ring-primary/20 scale-[1.02] shadow-lg"
-                                    : "border-gray-200 hover:border-primary/50 hover:shadow-md"
+                                ? "border-primary ring-2 ring-primary/20 scale-[1.02] shadow-lg"
+                                : "border-gray-200 hover:border-primary/50 hover:shadow-md"
                                 }`}
                         >
                             <div className={`h-32 w-full bg-gradient-to-br ${theme.color} p-4 flex flex-col justify-end relative`}>
                                 {/* Provide visual fallback if no image */}
                                 <div className="absolute inset-0 opacity-10 bg-pattern-dots" />
-                                <div className={`relative z-10 ${theme.textColor || "text-gray-900"}`}>
+                                <div className="relative z-10 text-gray-900">
                                     <h4 className="font-serif font-bold text-lg leading-tight">{theme.title}</h4>
                                 </div>
                             </div>
