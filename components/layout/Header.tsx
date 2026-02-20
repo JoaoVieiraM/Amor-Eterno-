@@ -68,13 +68,13 @@ const Header = () => {
 
                 {/* Desktop Navigation */}
                 <nav className="hidden md:flex items-center gap-8">
-                    <Link href="#inicio" className="text-gray-600 hover:text-primary font-medium transition-colors">
+                    <Link href="/#inicio" className="text-gray-600 hover:text-primary font-medium transition-colors">
                         Início
                     </Link>
-                    <Link href="#homenagens" className="text-gray-600 hover:text-primary font-medium transition-colors">
+                    <Link href="/#homenagens" className="text-gray-600 hover:text-primary font-medium transition-colors">
                         Homenagens
                     </Link>
-                    <Link href="#depoimentos" className="text-gray-600 hover:text-primary font-medium transition-colors">
+                    <Link href="/#depoimentos" className="text-gray-600 hover:text-primary font-medium transition-colors">
                         Depoimentos
                     </Link>
 
@@ -118,13 +118,13 @@ const Header = () => {
                         exit={{ opacity: 0, y: -20 }}
                         className="md:hidden absolute top-full left-0 right-0 bg-white border-t p-4 shadow-lg flex flex-col gap-4"
                     >
-                        <Link href="#inicio" className="text-gray-600 hover:text-primary font-medium p-2" onClick={() => setIsMobileMenuOpen(false)}>
+                        <Link href="/#inicio" className="text-gray-600 hover:text-primary font-medium p-2" onClick={() => setIsMobileMenuOpen(false)}>
                             Início
                         </Link>
-                        <Link href="#homenagens" className="text-gray-600 hover:text-primary font-medium p-2" onClick={() => setIsMobileMenuOpen(false)}>
+                        <Link href="/#homenagens" className="text-gray-600 hover:text-primary font-medium p-2" onClick={() => setIsMobileMenuOpen(false)}>
                             Homenagens
                         </Link>
-                        <Link href="#depoimentos" className="text-gray-600 hover:text-primary font-medium p-2" onClick={() => setIsMobileMenuOpen(false)}>
+                        <Link href="/#depoimentos" className="text-gray-600 hover:text-primary font-medium p-2" onClick={() => setIsMobileMenuOpen(false)}>
                             Depoimentos
                         </Link>
                         <div className="flex flex-col gap-2 mt-2">
