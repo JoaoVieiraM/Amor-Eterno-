@@ -78,12 +78,14 @@ export default function HomageDisplay({ petName, originalImage, theme }: HomageD
             </div>
 
             <div className="pt-8 border-t border-gray-200">
-                <Link
-                    href="/homenagem/novo"
+                <a
+                    href="https://wa.me/5511942606739?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20uma%20homenagem%20ao%20meu%20pet."
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-primary hover:text-primary-700 font-medium transition-colors"
                 >
                     Criar outra homenagem
-                </Link>
+                </a>
             </div>
         </div>
     );

@@ -9,7 +9,7 @@ const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfa
 
 export const metadata: Metadata = {
   title: "Amor Eterno Pets | Homenagens Eternas",
-  description: "Transforme a saudade do seu pet em uma homenagem eterna com Inteligência Artificial.",
+  description: "Transforme a saudade do seu pet em uma homenagem eterna.",
 };
 
 export default function RootLayout({

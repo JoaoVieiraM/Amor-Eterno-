@@ -34,11 +34,13 @@ export default function Home() {
             Eternize seu anjinho hoje
           </h2>
           <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto">
-            A primeira homenagem é gratuita. Descubra como é ver seu pet feliz novamente, mesmo que seja em uma imagem.
+            Pacote com 3 imagens exclusivas por apenas R$24,90. Entre em contato pelo WhatsApp e receba a homenagem do seu pet.
           </p>
-          <Button size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
-            Criar Homenagem Grátis
-          </Button>
+          <a href="https://wa.me/5511942606739?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20uma%20homenagem%20ao%20meu%20pet." target="_blank" rel="noopener noreferrer">
+            <Button size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
+              Pedir via WhatsApp
+            </Button>
+          </a>
         </div>
       </section>
     </div>

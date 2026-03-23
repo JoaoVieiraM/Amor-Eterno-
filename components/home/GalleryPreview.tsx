@@ -122,7 +122,7 @@ const GalleryPreview = () => {
 
                 <div className="text-center mt-12">
                     <p className="text-sm text-gray-500 italic">
-                        * Imagens geradas 100% por Inteligência Artificial
+                        * Imagens criadas com exclusividade e carinho
                     </p>
                 </div>
             </div>

@@ -23,28 +23,10 @@ const Header = () => {
         };
         window.addEventListener("scroll", handleScroll);
 
-        const getUser = async () => {
-            const { data: { user } } = await supabase.auth.getUser();
-            setUser(user);
-        };
-        getUser();
-
-        const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-            setUser(session?.user ?? null);
-            router.refresh();
-        });
-
         return () => {
             window.removeEventListener("scroll", handleScroll);
-            subscription.unsubscribe();
         };
-    }, [supabase, router]);
-
-    const handleLogout = async () => {
-        await supabase.auth.signOut();
-        setUser(null);
-        router.push("/login");
-    };
+    }, []);
 
     return (
         <header
@@ -78,26 +60,11 @@ const Header = () => {
                         Depoimentos
                     </Link>
 
-                    {user ? (
-                        <div className="flex items-center gap-4">
-                            <span className="text-sm text-gray-600">Olá, {user.email?.split('@')[0]}</span>
-                            <Button variant="outline" size="sm" onClick={handleLogout}>
-                                Sair
-                            </Button>
-                        </div>
-                    ) : (
-                        <Link href="/login">
-                            <Button variant="outline" size="sm" leftIcon={<Heart className="w-4 h-4" />}>
-                                Entrar
-                            </Button>
-                        </Link>
-                    )}
-
-                    <Link href="/homenagem/novo">
+                    <a href="https://wa.me/5511942606739?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20uma%20homenagem%20ao%20meu%20pet." target="_blank" rel="noopener noreferrer">
                         <Button size="sm">
                             Criar Homenagem
                         </Button>
-                    </Link>
+                    </a>
                 </nav>
 
                 {/* Mobile Menu Toggle */}
@@ -128,27 +95,11 @@ const Header = () => {
                             Depoimentos
                         </Link>
                         <div className="flex flex-col gap-2 mt-2">
-                            {user ? (
-                                <>
-                                    <div className="text-center text-sm text-gray-600 p-2">
-                                        Logado como {user.email}
-                                    </div>
-                                    <Button variant="outline" className="w-full" onClick={handleLogout}>
-                                        Sair
-                                    </Button>
-                                </>
-                            ) : (
-                                <Link href="/login" onClick={() => setIsMobileMenuOpen(false)}>
-                                    <Button variant="outline" className="w-full" leftIcon={<Heart className="w-4 h-4" />}>
-                                        Entrar
-                                    </Button>
-                                </Link>
-                            )}
-                            <Link href="/homenagem/novo" className="w-full">
+                            <a href="https://wa.me/5511942606739?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20uma%20homenagem%20ao%20meu%20pet." target="_blank" rel="noopener noreferrer" className="w-full" onClick={() => setIsMobileMenuOpen(false)}>
                                 <Button className="w-full">
                                     Criar Homenagem
                                 </Button>
-                            </Link>
+                            </a>
                         </div>
                     </motion.div>
                 )}

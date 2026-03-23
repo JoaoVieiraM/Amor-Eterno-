@@ -27,7 +27,7 @@ const CommunitySection = () => {
                                 size="lg"
                                 className="bg-[#25D366] hover:bg-[#128C7E] text-white border-none shadow-green-200"
                                 leftIcon={<MessageCircle className="w-5 h-5" />}
-                                onClick={() => window.open('whatsapp://chat?code=CCLp7uWVS439jbwiPjdO2B', '_blank')}
+                                onClick={() => window.open('https://chat.whatsapp.com/J6lEhbz9Mt53Ur1k34Ega6', '_blank')}
                             >
                                 Entrar no Grupo de Apoio
                             </Button>

@@ -36,21 +36,21 @@ const Hero = () => {
                     </h1>
 
                     <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-lg mx-auto md:mx-0">
-                        Crie homenagens celestiais com Inteligência Artificial e faça parte de uma comunidade que acolhe sua saudade.
+                        Crie homenagens celestiais e faça parte de uma comunidade que acolhe sua saudade.
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start w-full sm:w-auto">
-                        <Link href="/homenagem/novo" className="w-full sm:w-auto">
+                        <a href="https://wa.me/5511942606739?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20uma%20homenagem%20ao%20meu%20pet." target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
                             <Button size="lg" rightIcon={<ArrowRight className="w-5 h-5" />} className="w-full sm:w-auto">
                                 Criar Homenagem
                             </Button>
-                        </Link>
+                        </a>
                         <Button
                             variant="secondary"
                             size="lg"
                             leftIcon={<MessageCircle className="w-5 h-5" />}
                             className="bg-[#25D366] hover:bg-[#128C7E] text-white border-none shadow-green-200 w-full sm:w-auto"
-                            onClick={() => window.open('whatsapp://chat?code=CCLp7uWVS439jbwiPjdO2B', '_blank')}
+                            onClick={() => window.open('https://chat.whatsapp.com/J6lEhbz9Mt53Ur1k34Ega6', '_blank')}
                         >
                             Comunidade WhatsApp
                         </Button>
