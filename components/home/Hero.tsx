@@ -35,9 +35,15 @@ const Hero = () => {
                         Eternize seu anjinho e encontre <span className="text-primary italic">apoio real</span>
                     </h1>
 
-                    <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-lg mx-auto md:mx-0">
+                    <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 leading-relaxed max-w-lg mx-auto md:mx-0">
                         Crie homenagens celestiais e faça parte de uma comunidade que acolhe sua saudade.
                     </p>
+
+                    <div className="mb-8 flex justify-center md:justify-start">
+                        <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-primary/20 px-4 py-2 rounded-xl text-sm sm:text-base text-gray-800 font-medium shadow-sm">
+                            ✨ Pacote de 3 fotos homenagem por apenas <span className="text-primary font-bold">R$ 24,90</span>
+                        </div>
+                    </div>
 
                     <div className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start w-full sm:w-auto">
                         <a href="https://wa.me/5511942606739?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20uma%20homenagem%20ao%20meu%20pet." target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
