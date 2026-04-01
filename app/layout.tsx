@@ -3,6 +3,7 @@ import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
@@ -25,6 +26,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <Script src="https://api.marchabb.com/v1/js" strategy="beforeInteractive" />
       </body>
     </html>
   );

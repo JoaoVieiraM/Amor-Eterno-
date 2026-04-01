@@ -1,0 +1,209 @@
+{
+  "title": "Você está passando por luto pet? Descubra como a Amor Eterno pode ajudar",
+  "description": "Um quiz rápido e acolhedor para entender sua jornada de luto",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Quanto tempo faz que você perdeu seu pet?",
+      "type": "single_choice",
+      "options": [
+        {
+          "text": "Menos de uma semana",
+          "value": "recent_1"
+        },
+        {
+          "text": "Entre 1 semana e 1 mês",
+          "value": "recent_2"
+        },
+        {
+          "text": "Entre 1 e 6 meses",
+          "value": "moderate"
+        },
+        {
+          "text": "Mais de 6 meses",
+          "value": "long_term"
+        }
+      ],
+      "stat": "73% das pessoas em luto por pet ainda sentem a dor intensamente após 6 meses"
+    },
+    {
+      "id": 2,
+      "question": "O que mais dói para você?",
+      "type": "single_choice",
+      "options": [
+        {
+          "text": "A rotina quebrada (café da manhã solitário, passeio que não acontece mais)",
+          "value": "routine"
+        },
+        {
+          "text": "Os momentos inesperados em que lembro e desabo",
+          "value": "triggers"
+        },
+        {
+          "text": "A madrugada insone, quando a saudade grita mais alto",
+          "value": "insomnia"
+        },
+        {
+          "text": "Tudo junto, não consigo lidar",
+          "value": "all"
+        }
+      ],
+      "stat": "85% das pessoas dizem que a rotina quebrada dói mais que a foto"
+    },
+    {
+      "id": 3,
+      "question": "Como você tem dormido desde a perda?",
+      "type": "single_choice",
+      "options": [
+        {
+          "text": "Consigo dormir, mas acordo de madrugada com crises emocionais",
+          "value": "interrupted"
+        },
+        {
+          "text": "Tenho insônia severa, não consigo dormir",
+          "value": "severe"
+        },
+        {
+          "text": "Durmo demais, é minha forma de escapar",
+          "value": "escape"
+        },
+        {
+          "text": "Consigo dormir bem",
+          "value": "good"
+        }
+      ],
+      "stat": "40% das pessoas em luto por pet sofrem com insônia ou despertares noturnos"
+    },
+    {
+      "id": 4,
+      "question": "Você se sente compreendido pelas pessoas ao seu redor?",
+      "type": "single_choice",
+      "options": [
+        {
+          "text": "Não, as pessoas minimizam dizendo 'era só um animal'",
+          "value": "misunderstood"
+        },
+        {
+          "text": "Parcialmente, alguns entendem, outros não",
+          "value": "partial"
+        },
+        {
+          "text": "Sim, tenho pessoas que realmente entendem",
+          "value": "understood"
+        },
+        {
+          "text": "Prefiro não falar sobre isso com ninguém",
+          "value": "isolated"
+        }
+      ],
+      "stat": "73% das pessoas em luto por pet sentem-se incompreendidas pela sociedade"
+    },
+    {
+      "id": 5,
+      "question": "Você tem momentos em que a dor retorna sem aviso (gatilhos)?",
+      "type": "single_choice",
+      "options": [
+        {
+          "text": "Sim, constantemente. Uma música, um cheiro, um pet parecido",
+          "value": "frequent"
+        },
+        {
+          "text": "Sim, mas menos frequente que antes",
+          "value": "occasional"
+        },
+        {
+          "text": "Raramente, consigo controlar melhor agora",
+          "value": "rare"
+        },
+        {
+          "text": "Não, já superei",
+          "value": "none"
+        }
+      ],
+      "stat": "68% das pessoas têm crises emocionais inesperadas meses ou anos após a perda"
+    },
+    {
+      "id": 6,
+      "question": "O que você mais sente falta?",
+      "type": "single_choice",
+      "options": [
+        {
+          "text": "A rotina diária com ele",
+          "value": "routine"
+        },
+        {
+          "text": "O conforto emocional que ele dava",
+          "value": "comfort"
+        },
+        {
+          "text": "Simplesmente sua presença",
+          "value": "presence"
+        },
+        {
+          "text": "Tudo. Não consigo escolher",
+          "value": "everything"
+        }
+      ],
+      "stat": "A ausência de rotina é o fator mais impactante no luto pet"
+    },
+    {
+      "id": 7,
+      "question": "Você tem um espaço seguro para processar seu luto?",
+      "type": "single_choice",
+      "options": [
+        {
+          "text": "Não, estou lidando sozinho",
+          "value": "alone"
+        },
+        {
+          "text": "Parcialmente, mas preciso de mais apoio",
+          "value": "partial"
+        },
+        {
+          "text": "Sim, tenho comunidade ou terapia",
+          "value": "supported"
+        },
+        {
+          "text": "Não sei por onde começar",
+          "value": "lost"
+        }
+      ],
+      "stat": "Pessoas com apoio comunitário processam o luto 3x mais rápido"
+    }
+  ],
+  "results": {
+    "high_need": {
+      "title": "Você está em um momento muito difícil 💙",
+      "message": "Sua dor é real e merece ser validada. Você não está sozinho nessa jornada. Muitas pessoas passam exatamente pelo que você está passando agora.",
+      "recommendation": "Recomendamos que você tenha um espaço estruturado para processar seu luto. Algo que combine acolhimento emocional com estratégias práticas para lidar com os desafios do dia a dia.",
+      "cta": "Conheça o Ebook Amor Eterno"
+    },
+    "moderate_need": {
+      "title": "Você está no caminho, mas precisa de apoio 💛",
+      "message": "Você já passou pelos momentos mais agudos, mas ainda há desafios. É completamente normal. O luto não é linear.",
+      "recommendation": "Um material que combine validação com estratégias práticas pode fazer toda a diferença nessa fase. Algo que você possa voltar sempre que precisar.",
+      "cta": "Descubra o Ebook Amor Eterno"
+    },
+    "stable": {
+      "title": "Você está processando bem seu luto 💚",
+      "message": "Parabéns pelo trabalho emocional que você tem feito. Você está transformando a dor em crescimento.",
+      "recommendation": "Mesmo em um lugar mais estável, ter um espaço para honrar a memória do seu pet e consolidar o aprendizado é valioso. Pode ajudar você a seguir em frente com propósito.",
+      "cta": "Explore o Ebook Amor Eterno"
+    }
+  },
+  "ebook_section": {
+    "title": "Apresentamos: Ebook Amor Eterno",
+    "subtitle": "7 Dias de Orações e Estratégias Práticas para o Luto Pet",
+    "description": "Um material único que combinam acolhimento emocional com estratégias práticas para lidar com os desafios reais do luto pet.",
+    "features": [
+      "7 orações personalizáveis (método do espelho)",
+      "Estratégias práticas para cada desafio (madrugada insone, rotina quebrada, gatilhos inesperados)",
+      "Dados baseados em pesquisa sobre luto pet",
+      "Espaços para reflexão e escrita pessoal",
+      "Design acolhedor em dourado e branco",
+      "Otimizado para imprimir e escrever à mão"
+    ],
+    "cta_button": "Baixar Ebook Grátis",
+    "cta_link": "#download-ebook"
+  }
+}

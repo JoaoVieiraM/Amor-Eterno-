@@ -6,8 +6,12 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Star, Heart, MessageCircle } from "lucide-react";
 import Button from "../ui/Button";
+import QuizModal from "../quiz/QuizModal";
+import { useState } from "react";
 
 const Hero = () => {
+    const [isQuizOpen, setIsQuizOpen] = useState(false);
+
     return (
         <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-background pt-20">
             {/* Background Decor */}
@@ -48,11 +52,20 @@ const Hero = () => {
                     <div className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start w-full sm:w-auto">
                         <Button
                             size="lg"
-                            className="bg-[#25D366] hover:bg-[#128C7E] text-white border-none shadow-green-200 w-full md:w-auto"
-                            leftIcon={<MessageCircle className="w-5 h-5" />}
+                            className="bg-[#D4AF37] hover:bg-[#c9a02a] text-white border-none shadow-xl shadow-yellow-200/50 w-full md:w-auto px-8 py-4 text-base font-bold transition-transform hover:-translate-y-1"
+                            onClick={() => setIsQuizOpen(true)}
+                        >
+                            Descobrir meu caminho
+                        </Button>
+                        <Button
+                            size="lg"
+                            className="bg-transparent border-2 border-gray-200 text-gray-700 hover:bg-gray-50 hover:border-gray-300 shadow-none w-full md:w-auto px-6 py-4"
                             onClick={() => window.open('https://chat.whatsapp.com/J6lEhbz9Mt53Ur1k34Ega6', '_blank')}
                         >
-                            Quero entrar na Comunidade
+                            <span className="flex items-center gap-2">
+                                <MessageCircle className="w-5 h-5 text-[#25D366]" />
+                                Comunidade
+                            </span>
                         </Button>
                     </div>
 
@@ -121,6 +134,8 @@ const Hero = () => {
                     </div>
                 </motion.div>
             </div>
+
+            <QuizModal isOpen={isQuizOpen} onClose={() => setIsQuizOpen(false)} />
         </section>
     );
 };
