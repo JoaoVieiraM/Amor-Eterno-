@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Star, Heart, MessageCircle } from "lucide-react";
+import { Star, Heart, MessageCircle } from "lucide-react";
 import Button from "../ui/Button";
 
 const Hero = () => {
@@ -32,33 +32,27 @@ const Hero = () => {
                     </div>
 
                     <h1 className="text-3xl sm:text-4xl md:text-6xl font-serif font-bold text-gray-900 leading-tight mb-6">
-                        Eternize seu anjinho e encontre <span className="text-primary italic">apoio real</span>
+                        Apoio e acolhimento no <span className="text-primary italic">momento mais difícil</span>
                     </h1>
 
                     <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 leading-relaxed max-w-lg mx-auto md:mx-0">
-                        Crie homenagens celestiais e faça parte de uma comunidade que acolhe sua saudade.
+                        Faça parte de uma comunidade gratuita que acolhe sua saudade e entende a dor da perda do seu melhor amigo.
                     </p>
 
                     <div className="mb-8 flex justify-center md:justify-start">
                         <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-primary/20 px-4 py-2 rounded-xl text-sm sm:text-base text-gray-800 font-medium shadow-sm">
-                            ✨ Pacote de 3 fotos homenagem por apenas <span className="text-primary font-bold">R$ 24,90</span>
+                            ✨ Grupo 100% gratuito e seguro no <span className="text-[#25D366] font-bold">WhatsApp</span>
                         </div>
                     </div>
 
                     <div className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start w-full sm:w-auto">
-                        <a href="https://wa.me/5511942606739?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20uma%20homenagem%20ao%20meu%20pet." target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-                            <Button size="lg" rightIcon={<ArrowRight className="w-5 h-5" />} className="w-full sm:w-auto">
-                                Criar Homenagem
-                            </Button>
-                        </a>
                         <Button
-                            variant="secondary"
                             size="lg"
+                            className="bg-[#25D366] hover:bg-[#128C7E] text-white border-none shadow-green-200 w-full md:w-auto"
                             leftIcon={<MessageCircle className="w-5 h-5" />}
-                            className="bg-[#25D366] hover:bg-[#128C7E] text-white border-none shadow-green-200 w-full sm:w-auto"
                             onClick={() => window.open('https://chat.whatsapp.com/J6lEhbz9Mt53Ur1k34Ega6', '_blank')}
                         >
-                            Comunidade WhatsApp
+                            Quero entrar na Comunidade
                         </Button>
                     </div>
 
@@ -71,7 +65,7 @@ const Hero = () => {
                                 </div>
                             ))}
                         </div>
-                        <p>+2.000 homenagens e membros</p>
+                        <p>+200 membros e histórias</p>
                     </div>
                 </motion.div>
 
@@ -88,19 +82,11 @@ const Hero = () => {
                         <div className="absolute -inset-8 border border-accent/30 rounded-full animate-spin-reverse-slow opacity-40" style={{ animationDuration: '25s' }} />
 
                         {/* Main Image Container */}
-                        <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white transform rotate-3 hover:rotate-0 transition-transform duration-500">
-                            {/* 
-                  TODO: Replace with a high-quality generated example image. 
-                  For now using a placeholder color block that implies an image 
-                */}
-                            <div className="absolute inset-0 bg-gray-100">
-                                <Image
-                                    src="/examples/hero-dog-heaven.jpg"
-                                    alt="Homenagem Exemplo"
-                                    fill
-                                    className="object-cover"
-                                    priority
-                                />
+                        <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white transform rotate-3 hover:rotate-0 transition-transform duration-500 bg-green-50 flex items-center justify-center p-8">
+                            <div className="text-center">
+                                <MessageCircle className="w-24 h-24 text-green-400 mx-auto mb-4" />
+                                <h3 className="text-2xl font-serif text-green-900 font-bold">Comunidade Amor Eterno Pets</h3>
+                                <p className="text-green-700 mt-2">Um abraço em forma de mensagens</p>
                             </div>
                         </div>
 
@@ -110,12 +96,12 @@ const Hero = () => {
                             transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
                             className="hidden xs:flex absolute -bottom-6 -left-2 sm:-left-6 bg-white p-3 sm:p-4 rounded-xl shadow-lg items-center gap-3 max-w-[180px] sm:max-w-[200px]"
                         >
-                            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
-                                <Heart className="w-4 h-4 sm:w-5 sm:h-5 fill-primary" />
+                            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+                                <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 fill-green-600" />
                             </div>
                             <div>
-                                <p className="text-[10px] sm:text-xs text-gray-500">Resultado</p>
-                                <p className="font-bold text-sm sm:text-base text-gray-800">Emocionante</p>
+                                <p className="text-[10px] sm:text-xs text-gray-500">Apoio Diário</p>
+                                <p className="font-bold text-sm sm:text-base text-gray-800">Sempre Ativa</p>
                             </div>
                         </motion.div>
 
@@ -124,12 +110,12 @@ const Hero = () => {
                             transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }}
                             className="hidden xs:flex absolute top-10 -right-2 sm:-right-6 bg-white p-3 sm:p-4 rounded-xl shadow-lg items-center gap-3 max-w-[180px] sm:max-w-[200px]"
                         >
-                            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
-                                <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 fill-green-600" />
+                            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+                                <Heart className="w-4 h-4 sm:w-5 sm:h-5 fill-primary" />
                             </div>
                             <div>
-                                <p className="text-[10px] sm:text-xs text-gray-500">Comunidade</p>
-                                <p className="font-bold text-sm sm:text-base text-gray-800">Acolhedora</p>
+                                <p className="text-[10px] sm:text-xs text-gray-500">Membros</p>
+                                <p className="font-bold text-sm sm:text-base text-gray-800">Receptivos</p>
                             </div>
                         </motion.div>
                     </div>

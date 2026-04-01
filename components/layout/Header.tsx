@@ -53,18 +53,9 @@ const Header = () => {
                     <Link href="/#inicio" className="text-gray-600 hover:text-primary font-medium transition-colors">
                         Início
                     </Link>
-                    <Link href="/#homenagens" className="text-gray-600 hover:text-primary font-medium transition-colors">
-                        Homenagens
+                    <Link href="/#comunidade" className="text-gray-600 hover:text-primary font-medium transition-colors">
+                        Comunidade
                     </Link>
-                    <Link href="/#depoimentos" className="text-gray-600 hover:text-primary font-medium transition-colors">
-                        Depoimentos
-                    </Link>
-
-                    <a href="https://wa.me/5511942606739?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20uma%20homenagem%20ao%20meu%20pet." target="_blank" rel="noopener noreferrer">
-                        <Button size="sm">
-                            Criar Homenagem
-                        </Button>
-                    </a>
                 </nav>
 
                 {/* Mobile Menu Toggle */}
@@ -88,19 +79,9 @@ const Header = () => {
                         <Link href="/#inicio" className="text-gray-600 hover:text-primary font-medium p-2" onClick={() => setIsMobileMenuOpen(false)}>
                             Início
                         </Link>
-                        <Link href="/#homenagens" className="text-gray-600 hover:text-primary font-medium p-2" onClick={() => setIsMobileMenuOpen(false)}>
-                            Homenagens
+                        <Link href="/#comunidade" className="text-gray-600 hover:text-primary font-medium p-2" onClick={() => setIsMobileMenuOpen(false)}>
+                            Comunidade
                         </Link>
-                        <Link href="/#depoimentos" className="text-gray-600 hover:text-primary font-medium p-2" onClick={() => setIsMobileMenuOpen(false)}>
-                            Depoimentos
-                        </Link>
-                        <div className="flex flex-col gap-2 mt-2">
-                            <a href="https://wa.me/5511942606739?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20uma%20homenagem%20ao%20meu%20pet." target="_blank" rel="noopener noreferrer" className="w-full" onClick={() => setIsMobileMenuOpen(false)}>
-                                <Button className="w-full">
-                                    Criar Homenagem
-                                </Button>
-                            </a>
-                        </div>
                     </motion.div>
                 )}
             </AnimatePresence>
