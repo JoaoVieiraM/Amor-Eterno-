@@ -4,7 +4,7 @@
   "questions": [
     {
       "id": 1,
-      "question": "Quanto tempo faz que você perdeu seu pet?",
+      "question": "Há quanto tempo o seu anjinho fez a passagem?",
       "type": "single_choice",
       "options": [
         {
@@ -175,13 +175,13 @@
     "high_need": {
       "title": "Você está em um momento muito difícil 💙",
       "message": "Sua dor é real e merece ser validada. Você não está sozinho nessa jornada. Muitas pessoas passam exatamente pelo que você está passando agora.",
-      "recommendation": "Recomendamos que você tenha um espaço estruturado para processar seu luto. Algo que combine acolhimento emocional com estratégias práticas para lidar com os desafios do dia a dia.",
+      "recommendation": "Recomendamos que você tenha um espaço estruturado para processar seu luto. Algo que combine acolhimento emocional com ferramentas gentis para atravessar os desafios do dia a dia.",
       "cta": "Conheça o Ebook Amor Eterno"
     },
     "moderate_need": {
       "title": "Você está no caminho, mas precisa de apoio 💛",
       "message": "Você já passou pelos momentos mais agudos, mas ainda há desafios. É completamente normal. O luto não é linear.",
-      "recommendation": "Um material que combine validação com estratégias práticas pode fazer toda a diferença nessa fase. Algo que você possa voltar sempre que precisar.",
+      "recommendation": "Um material que combine validação com passos gentis pode fazer toda a diferença nessa fase. Algo que você possa voltar sempre que precisar.",
       "cta": "Descubra o Ebook Amor Eterno"
     },
     "stable": {
@@ -193,11 +193,11 @@
   },
   "ebook_section": {
     "title": "Apresentamos: Ebook Amor Eterno",
-    "subtitle": "7 Dias de Orações e Estratégias Práticas para o Luto Pet",
-    "description": "Um material único que combinam acolhimento emocional com estratégias práticas para lidar com os desafios reais do luto pet.",
+    "subtitle": "7 Dias de Orações e Passos Gentis para Acolher a Sua Dor",
+    "description": "Um material único que combina acolhimento emocional com ferramentas gentis para atravessar os desafios reais do luto pet.",
     "features": [
       "7 orações personalizáveis (método do espelho)",
-      "Estratégias práticas para cada desafio (madrugada insone, rotina quebrada, gatilhos inesperados)",
+      "Passos gentis para atravessar cada desafio (madrugada insone, rotina quebrada, gatilhos inesperados)",
       "Dados baseados em pesquisa sobre luto pet",
       "Espaços para reflexão e escrita pessoal",
       "Design acolhedor em dourado e branco",

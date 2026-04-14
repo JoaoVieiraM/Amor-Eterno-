@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { Star, Heart, MessageCircle } from "lucide-react";
 import Button from "../ui/Button";
 import QuizModal from "../quiz/QuizModal";
+import { trackEvent } from "@/utils/analytics";
 import { useState } from "react";
 
 const Hero = () => {
@@ -53,7 +54,7 @@ const Hero = () => {
                         <Button
                             size="lg"
                             className="bg-[#D4AF37] hover:bg-[#c9a02a] text-white border-none shadow-xl shadow-yellow-200/50 w-full md:w-auto px-8 py-4 text-base font-bold transition-transform hover:-translate-y-1"
-                            onClick={() => setIsQuizOpen(true)}
+                            onClick={() => { trackEvent('quiz_started'); setIsQuizOpen(true); }}
                         >
                             Descobrir meu caminho
                         </Button>
@@ -95,12 +96,14 @@ const Hero = () => {
                         <div className="absolute -inset-8 border border-accent/30 rounded-full animate-spin-reverse-slow opacity-40" style={{ animationDuration: '25s' }} />
 
                         {/* Main Image Container */}
-                        <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white transform rotate-3 hover:rotate-0 transition-transform duration-500 bg-green-50 flex items-center justify-center p-8">
-                            <div className="text-center">
-                                <MessageCircle className="w-24 h-24 text-green-400 mx-auto mb-4" />
-                                <h3 className="text-2xl font-serif text-green-900 font-bold">Comunidade Amor Eterno Pets</h3>
-                                <p className="text-green-700 mt-2">Um abraço em forma de mensagens</p>
-                            </div>
+                        <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white transform rotate-3 hover:rotate-0 transition-transform duration-500">
+                            <Image
+                                src="/examples/hero-dog-heaven.jpg"
+                                alt="Pet no céu — Amor Eterno Pets"
+                                fill
+                                className="object-cover"
+                                priority
+                            />
                         </div>
 
                         {/* Floating Cards - Hidden on very small screens, adjusted for mobile */}

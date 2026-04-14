@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronRight, Mail, Loader2, CheckCircle2 } from 'lucide-react';
 import quizData from '@/data/quiz_luto_pet.json';
 import Button from '../ui/Button';
+import { trackEvent } from '@/utils/analytics';
 
 interface QuizModalProps {
     isOpen: boolean;
@@ -48,6 +49,7 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
     const [email, setEmail] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [resultCategory, setResultCategory] = useState<ResultCategory | null>(null);
+    const [showEbookPitch, setShowEbookPitch] = useState(false);
     const [showCheckoutForm, setShowCheckoutForm] = useState(false);
     const [isProcessingPayment, setIsProcessingPayment] = useState(false);
     const [paymentSuccess, setPaymentSuccess] = useState(false);
@@ -64,6 +66,7 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
                     const res = await fetch(`/api/checkout/status?txId=${pixData.txId}`);
                     const data = await res.json();
                     if (data.success && data.transaction?.status === 'paid') {
+                        trackEvent('purchase', { value: 24.90, currency: 'BRL' });
                         setPaymentSuccess(true);
                         setDownloadUrl(data.downloadUrl || null);
                         setPixData(null);
@@ -74,12 +77,16 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
         return () => clearInterval(interval);
     }, [pixData, paymentSuccess]);
 
-    const getPainPoint = (userAnswers: string[]) => {
-        if (userAnswers.includes('routine')) return 'lidar com a quebra repentina da sua rotina diária';
-        if (userAnswers.includes('insomnia') || userAnswers.includes('severe')) return 'lidar com as crises noturnas e a falta de sono';
-        if (userAnswers.includes('triggers') || userAnswers.includes('frequent')) return 'conviver com gatilhos e lembranças inesperadas';
-        if (userAnswers.includes('alone') || userAnswers.includes('isolated')) return 'processar essa dor sozinho e sem o colo adequado';
-        return 'processar o enorme vazio deixado pela ausência física';
+    const getDiagnosisIntro = (userAnswers: string[]) => {
+        if (userAnswers.includes('insomnia') || userAnswers.includes('severe') || userAnswers.includes('interrupted'))
+            return 'Notamos que as madrugadas têm sido especialmente difíceis para você. O silêncio da noite costuma amplificar a saudade de um jeito que as palavras não conseguem descrever.';
+        if (userAnswers.includes('routine'))
+            return 'Notamos que a quebra da rotina tem sido o que mais pesa para você. Cada hora do dia virou um lembrete silencioso da ausência — e isso é uma das formas mais profundas de amor.';
+        if (userAnswers.includes('triggers') || userAnswers.includes('frequent'))
+            return 'Notamos que os gatilhos inesperados têm chegado sem avisar. Uma música, um cheiro, um pet parecido na rua — e a dor aparece de repente, intensa e avassaladora.';
+        if (userAnswers.includes('alone') || userAnswers.includes('isolated') || userAnswers.includes('misunderstood'))
+            return 'Notamos que você tem carregado isso sozinho, talvez sem encontrar pessoas que entendam a profundidade dessa perda. Processar esse luto sem apoio é um peso muito grande.';
+        return 'Notamos o quanto esse vazio está presente em cada detalhe da sua vida. A ausência física é real, concreta, e merece ser acolhida com todo o cuidado que esse amor merece.';
     };
 
     // Reset state when opened/closed if needed, or keep it to resume
@@ -143,11 +150,14 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
             console.error('Failed to save quiz response', error);
         }
 
+        trackEvent('quiz_completed', { result_category: result });
+        trackEvent('diagnosis_viewed', { result_category: result });
         setIsSubmitting(false);
         setStep(step + 1); // Move to results step
     };
 
     const handleCheckout = () => {
+        trackEvent('checkout_initiated');
         setShowCheckoutForm(true);
     };
 
@@ -223,6 +233,7 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
             }
             
             setDownloadUrl(data.downloadUrl || null);
+            trackEvent('purchase', { value: 24.90, currency: 'BRL' });
             setPaymentSuccess(true);
         } catch (error) {
             console.error('Payment Error:', error);
@@ -364,35 +375,59 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
                             </motion.div>
                         )}
 
-                        {/* Result & Ebook Pitch Phase */}
-                        {step > totalQuestions && resultCategory && !showCheckoutForm && !paymentSuccess && (
+                        {/* Diagnosis Phase */}
+                        {step > totalQuestions && resultCategory && !showEbookPitch && !showCheckoutForm && !paymentSuccess && (
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 className="py-4"
                             >
-                                {/* Results Section with Dynamic Diagnosis */}
-                                <div className="text-center mb-10 p-6 bg-[#F5E6D3]/50 rounded-2xl">
-                                    <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#D4AF37] mb-4">
+                                <div className="p-6 bg-[#F5E6D3]/50 rounded-2xl mb-6">
+                                    <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#D4AF37] mb-4 text-center">
                                         {quizData.results[resultCategory].title}
                                     </h2>
-                                    
+
                                     <div className="bg-white/70 p-5 rounded-xl border border-[#D4AF37]/20 mb-5 text-left shadow-sm">
                                         <h4 className="font-bold text-gray-800 mb-2 flex items-center gap-2">
                                             <span className="text-[#D4AF37]">📋</span> Diagnóstico do seu Perfil
                                         </h4>
                                         <p className="text-gray-700 text-sm leading-relaxed">
-                                            Identificamos que você está processando um <strong className="text-[#D4AF37]">{resultCategory === 'high_need' ? 'Luto Agudo' : resultCategory === 'moderate_need' ? 'Luto de Transição' : 'Luto de Integração'}</strong>. 
-                                            Através de suas respostas de hoje, notamos que a sua maior dificuldade no momento tem sido <strong className="text-[#D4AF37]">{getPainPoint(answers)}</strong>.
-                                            Isso é uma prova da profunda conexão real de amor que vocês construíram juntos. 
+                                            Você está processando um <strong className="text-[#D4AF37]">{resultCategory === 'high_need' ? 'Luto Agudo' : resultCategory === 'moderate_need' ? 'Luto de Transição' : 'Luto de Integração'}</strong>. {getDiagnosisIntro(answers)} Isso é uma prova da profunda conexão de amor que vocês construíram juntos.
                                         </p>
                                     </div>
-                                    
-                                    <p className="text-gray-700 text-lg mb-4">
+
+                                    <p className="text-gray-700 text-lg mb-4 text-center">
                                         {quizData.results[resultCategory].message}
                                     </p>
-                                    <p className="text-gray-600 font-medium bg-white/40 p-3 rounded-lg inline-block">
+                                    <p className="text-gray-600 font-medium bg-white/40 p-3 rounded-lg text-center">
                                         💡 {quizData.results[resultCategory].recommendation}
+                                    </p>
+                                </div>
+
+                                <Button
+                                    size="lg"
+                                    onClick={() => { trackEvent('ebook_pitch_viewed'); setShowEbookPitch(true); }}
+                                    className="w-full bg-[#D4AF37] hover:bg-[#c9a02a] text-white border-none shadow-xl shadow-yellow-200/50 py-4 text-lg font-bold"
+                                >
+                                    Ver a minha solução <ChevronRight className="inline w-5 h-5 ml-1" />
+                                </Button>
+                            </motion.div>
+                        )}
+
+                        {/* Ebook Pitch Phase */}
+                        {step > totalQuestions && resultCategory && showEbookPitch && !showCheckoutForm && !paymentSuccess && (
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                className="py-4"
+                            >
+                                {/* Bridge Paragraph */}
+                                <div className="text-center py-4 px-4 mb-2">
+                                    <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+                                        A dor que você sente agora não vai desaparecer da noite para o dia — e não deveria. Mas ela não precisa ser tão esmagadora. Você precisa de ferramentas gentis para atravessar os próximos dias, um por um.
+                                    </p>
+                                    <p className="text-gray-700 font-semibold mt-3 text-sm md:text-base">
+                                        Foi exatamente por isso que criamos o Amor Eterno.
                                     </p>
                                 </div>
 
@@ -400,14 +435,14 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
                                 <div className="border border-[#D4AF37]/30 rounded-2xl p-6 sm:p-8 bg-white shadow-xl shadow-yellow-900/5 relative overflow-hidden flex flex-col items-center">
                                     <div className="absolute top-0 right-0 w-32 h-32 bg-[#D4AF37]/10 rounded-full blur-3xl" />
                                     <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#D4AF37]/10 rounded-full blur-3xl" />
-                                    
+
                                     <h3 className="text-2xl sm:text-3xl font-serif font-bold text-gray-900 mb-2 relative z-10 text-center">
                                         {quizData.results[resultCategory].cta}
                                     </h3>
                                     <p className="text-gray-500 mb-8 max-w-sm text-center relative z-10">
                                         {quizData.ebook_section.subtitle}
                                     </p>
-                                    
+
                                     <div className="w-full max-w-md bg-gray-50 rounded-xl p-6 shadow-sm mb-6 relative z-10 border border-gray-100">
                                         <ul className="space-y-3">
                                             {quizData.ebook_section.features.slice(0, 4).map((feat, i) => (
@@ -418,27 +453,49 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
                                             ))}
                                         </ul>
                                     </div>
-                                    
+
                                     <div className="text-center relative z-10 mb-6">
                                         <div className="text-gray-400 text-sm line-through mb-1">De R$ 49,90 por</div>
                                         <div className="text-4xl text-[#D4AF37] font-bold">R$ 24,90</div>
-                                        <div className="text-xs text-gray-500 mt-1">Acesso vitalício</div>
+                                        <div className="text-xs text-gray-500 mt-1">Acesso vitalício · Menos que um café por semana</div>
                                     </div>
 
-                                    <Button 
+                                    {/* Testimonials */}
+                                    <div className="w-full max-w-md space-y-3 mb-6 relative z-10">
+                                        <div className="bg-amber-50 border border-amber-100 rounded-xl p-4">
+                                            <p className="text-sm text-gray-700 italic">&ldquo;As orações me deram estrutura para suportar as madrugadas. Eu não acreditava que um livro pudesse ajudar tanto.&rdquo;</p>
+                                            <p className="text-xs text-gray-500 mt-2 font-medium">— Ana Paula, tutora do Thor</p>
+                                        </div>
+                                        <div className="bg-amber-50 border border-amber-100 rounded-xl p-4">
+                                            <p className="text-sm text-gray-700 italic">&ldquo;Finalmente me senti compreendida. O ebook foi meu companheiro nas primeiras semanas.&rdquo;</p>
+                                            <p className="text-xs text-gray-500 mt-2 font-medium">— Carla R., tutora da Luna</p>
+                                        </div>
+                                    </div>
+
+                                    <Button
                                         size="lg"
                                         onClick={handleCheckout}
                                         className="w-full max-w-sm bg-[#D4AF37] hover:bg-[#c9a02a] text-white border-none shadow-xl shadow-yellow-200/50 py-4 text-lg font-bold relative z-10"
                                     >
-                                        Quero Ter Acesso Hoje
+                                        Quero começar a curar o meu coração
                                     </Button>
-                                    
-                                    <div className="mt-4 flex items-center justify-center gap-2 text-xs text-gray-500 relative z-10">
-                                        <svg className="w-4 h-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                                        </svg>
-                                        Pagamento 100% Seguro
+
+                                    {/* Trust Signals */}
+                                    <div className="mt-4 flex items-center justify-center gap-4 text-xs text-gray-500 relative z-10 flex-wrap">
+                                        <div className="flex items-center gap-1.5">
+                                            <svg className="w-4 h-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                            </svg>
+                                            Pagamento 100% Seguro
+                                        </div>
+                                        <div className="flex items-center gap-1.5">
+                                            <svg className="w-4 h-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                            7 dias de garantia
+                                        </div>
                                     </div>
+                                    <p className="text-xs text-gray-400 mt-2 relative z-10 text-center">Se o ebook não ajudar, devolvemos seu dinheiro. Sem perguntas.</p>
                                 </div>
                             </motion.div>
                         )}
